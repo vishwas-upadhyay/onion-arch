@@ -10,7 +10,7 @@ public record Message(String text, String sender, String receiver, String timest
         this(text, sender, receiver, String.valueOf(timestamp));
     }
 
-    public Message(String text, String sender, String receiver, String timestamp) {
+    public Message(String text, String sender, String receiver, String timestamp){
         if (text == null || text.isBlank()) {
             throw new IllegalArgumentException("Text cannot be null or empty");
         }
@@ -21,13 +21,13 @@ public record Message(String text, String sender, String receiver, String timest
             throw new IllegalArgumentException("Receiver cannot be null or empty");
         }
         if (timestamp == null || timestamp.isBlank()) {
-            throw new IllegalArgumentException("Timestamp cannot be null or empty");
+            timestamp = String.valueOf(System.currentTimeMillis());
         }
-
         this.text = text;
         this.sender = sender;
         this.receiver = receiver;
         this.timestamp = timestamp;
+
     }
 
     public String getText() {

@@ -1,22 +1,29 @@
 package com.thetechyatra.onionarchspringboot.application.service.api;
 
-import com.thetechyatra.onionarchspringboot.adapter.spi.persistance.H2MessageRepository;
-import com.thetechyatra.onionarchspringboot.adapter.spi.persistance.entity.MessageEntity;
+import com.thetechyatra.onionarchspringboot.adapter.spi.persistance.MessageRepository;
+import com.thetechyatra.onionarchspringboot.domain.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MessageService {
 
-    private final H2MessageRepository messageRepository;
+    private final MessageRepository messageRepository;
 
     @Autowired
-    public MessageService( H2MessageRepository messageRepository) {
+    public MessageService( MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
 
     }
     public void sendMessage(String text, String sender, String receiver) {
-        MessageEntity message = new MessageEntity(text, sender, receiver);
+        Message message = new Message(text, sender, receiver);
+        messageRepository.save(message);
+
+    }
+
+    public void sendMessage(Message message) {
         messageRepository.save(message);
 
     }
@@ -31,5 +38,9 @@ public class MessageService {
 
     public void getMessage(String id) {
         // get message
+    }
+
+    public List<Message> getMessages() {
+        return messageRepository.getMessages();
     }
 }
