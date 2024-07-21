@@ -1,5 +1,5 @@
 ###
-# Send a message
+# Send a greetingCriteria
 POST http://localhost:8080/messages
 Content-Type: application/json
 
@@ -14,14 +14,14 @@ Content-Type: application/json
 GET http://localhost:8080/api/v1/messages
 
 ###
-# Update a message
+# Update a greetingCriteria
 PUT http://localhost:8080/api/v1/messages/1
 Content-Type: application/json
 
 {
-  "text": "Updated message"
+  "text": "Updated greetingCriteria"
 }
 
 ###
-# Delete a message
+# Delete a greetingCriteria
 DELETE http://localhost:8080/api/v1/messages/1

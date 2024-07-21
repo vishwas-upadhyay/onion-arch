@@ -15,14 +15,14 @@ import static com.tngtech.archunit.library.Architectures.onionArchitecture;
         })
 public class ArchitectureTest {
  @ArchTest
- public static void meet_onion_architecture_rules(JavaClasses classes) {
+ public static void check_onion_architecture_rules(JavaClasses classes) {
   onionArchitecture()
-          .domainModels("com.thetechyatra.onionarchspringboot.domain.model..")
-          //.domainServices("com.thetechyatra.onionarchspringboot.domain..")
-          .applicationServices("com.thetechyatra.onionarchspringboot.application..")
-          .adapter("persistence", "com.thetechyatra.onionarchspringboot.adapter.spi.persistence..")
-          .adapter("rest", "com.thetechyatra.onionarchspringboot.adapter.api.rest..")
-//          .adapter("web", "com.thetechyatra.onionarchspringboot.web..")
+          .domainModels("..domain.model..")
+          .domainServices("..domain.interfaces..")
+          .applicationServices("..service..")
+//          .adapter("persistence", "com.thetechyatra.onionarchspringboot.adapter.spi.persistence..")
+//          .adapter("rest", "com.thetechyatra.onionarchspringboot.adapter.api.rest..")
+          .adapter("web", "..presentation..")
           .check(classes);
  }
 }

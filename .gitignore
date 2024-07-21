@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### SQL Server ###
+data/
+log/
+secrets/

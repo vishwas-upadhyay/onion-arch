@@ -1,4 +1,4 @@
-package com.thetechyatra.onionarchspringboot.application;
+package com.thetechyatra.onionarchspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
